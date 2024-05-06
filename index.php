@@ -23,13 +23,13 @@ $listIndex = [];
 foreach ($products as $val) {
     $elem = ['name' => $val['name']];
     if ($val['parent_id'] == 0) {
-        $list[(string)$val['id']] = $elem;
-        $listIndex[$val['id']] = &$list[(string)$val['id']];
+        $list[$val['id']] = $elem;
+        $listIndex[$val['id']] = &$list[$val['id']];
     } 
     else {
         if (($list[$val['parent_id']]??0) != 0) {
-            $list[(string)$val['parent_id']]['children'][(string)$val['id']] = $elem;
-            $listIndex[$val['id']] = &$list[(string)$val['parent_id']]['children'][(string)$val['id']];
+            $list[$val['parent_id']]['children'][$val['id']] = $elem;
+            $listIndex[$val['id']] = &$list[$val['parent_id']]['children'][$val['id']];
         }
         else {
             foreach ($listIndex as $key => &$valIndex) {
