@@ -8,7 +8,6 @@ header('Content-Type: application/json; charset=utf-8');
  * из банального я не стал проверять существование файла даже, 
  * хотя на проде без этого никуда
  * 
- * результат -> https://3d.orange.0644.ru/t/
  */
 $csv = file('e.csv', FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES);
 $headers = str_getcsv(array_shift($csv), ','); 
